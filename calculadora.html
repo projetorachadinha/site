@@ -85,11 +85,11 @@
             } );
 
             var table = $('table.table').DataTable( {
-                "ajax": "data/data-calculadora.json",
+                "ajax": "data/data-faker.json",
                 "columns": [
                     { "data": "NOME_DEPUTADO" },
                     { "data": "NOME_DO_ASSESSOR" },
-                    { "data": "RENDIMENTO_FUNCIONARIO" },
+                    { "data": "RENDIMENTO_FUNCIONARIO", render: $.fn.dataTable.render.number( '.', ',', 2, 'R$ ' )  },
                     { "data": "RENDIMENTO_LIQUIDO", render: $.fn.dataTable.render.number( '.', ',', 2, 'R$ ' )  },
                     { "data": "REPRESENTACAO_GRATIFICACAO", render: $.fn.dataTable.render.number( '.', ',', 2, 'R$ ' )  },
                     { "data": "SCORE" },
@@ -128,7 +128,7 @@
                     { "data": "DOMICILIO_ELEITORAL_AUSENCIA_CORRELACAO" },
                     { "data": "DOMICILIO_FISCAL_AUSENCIA_CORRELACAO" },
                     { "data": "DOMICILIO_RESIDENCIAL_AUSENCIA_CORRELACAO" },
-                    { "data": "AREA_DE_VOTAÇÃO_DO_LEGISLADOR_AUSENCIA_CORRELACAO" },
+                    { "data": "AREA_DE_VOTACAO_DO_LEGISLADOR_AUSENCIA_CORRELACAO" },
                     { "data": "REMESSAS_EXTERIOR_AUSENCIA_CORRELACAO" },
                     { "data": "VIAGENS_EXTERIOR_AUSENCIA_CORRELACAO" },
                     { "data": "INQUERITOS" },
@@ -223,7 +223,7 @@
                 }  
                 return 0;  
             }  
-}  
+        }  
             $(document).ready(function () {
                 $.getJSON("data/deputados.json", function (data) {
         
@@ -252,8 +252,8 @@
 
 
                 });
-            });
-        </script>
+        });
+    </script>
 
         <div id="showData" class="scrolling-wrapper-flexbox">
                 <div class='card'>
@@ -262,8 +262,6 @@
                     </a>
                     <figcaption class='figure-caption'><a href="#" class="linkTodos">TODOS DEPUTADOS</a></figcaption>
                 </div>
-
-
         </div>
         <ul class="nav nav-tabs" role="tablist">
             <li class="active">
@@ -300,7 +298,7 @@
                             <th>Nome Avós Paternos</th>
                             <th>Nome Avós Maternos</th>
                             <th>Filiação</th>
-                            <th>CUMULACAO_DE_CARGOS_INACUMULAVEIS</th>
+                            <th>CARGOS INACUMULAVEIS</th>
                             <th>CUMULACAO_DE_CARGOS_ACUMULAVEIS_HORARIOS_INCOMPATIVEIS</th>
                             <th>OAB_ATIVA_VEDACAO_LEGAL</th>
                             <th>SOCIO_GERENTE </th>
